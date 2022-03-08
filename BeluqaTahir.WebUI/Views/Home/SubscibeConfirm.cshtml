@@ -1,0 +1,41 @@
+﻿@{
+    var m = ViewBag.ms as Tuple<bool, string>;
+    
+}
+
+
+
+
+<section class="page-content mt-10 pt-7">
+    <section class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+
+                    @if (m.Item1)
+                    {
+                        <div class="alert alert-danger text-white">
+                            @m.Item1
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-success text-white">
+                            @m.Item2
+                        </div>
+                    }
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    @section addjs{
+
+        <script>
+            $(document).ready(function () {
+                setTimeout("window.location.pathname = \"home/Signin\";", 2000);
+            })</script>
+    }

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BeluqaTahir.Domain.Model.Entity.Accountdetails>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div style="display:flex">
+    <h1>Icons Layout</h1>
+
+
+</div>
+<div class="col-10">
+    <table class="table table-striped" border="1">
+        <thead>
+            <tr>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Address</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <th>@item.Email</th>
+                <th>@item.Phone</th>
+                <th>@item.Address</th>
+
+                <td>
+                    <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.Id">
+                      
+                        Details
+                    </a>
+                </td>
+
+                <td> 
+                   <a class="btn btn-outline-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                </td>
+
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

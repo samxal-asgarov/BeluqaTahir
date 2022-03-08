@@ -1,0 +1,313 @@
+﻿@model ShopViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="site-navbar-wrap">
+    <div class="site-navbar-top">
+        <div class="container py-3">
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <div class="d-flex mr-auto">
+                        <a href="#" class="d-flex align-items-center mr-4">
+                            <span class="icon-envelope mr-2"></span>
+                            <span class="d-none d-md-inline-block">eltunhi@code.edu.az</span>
+                        </a>
+                        <a href="#" class="d-flex align-items-center mr-auto">
+                            <span class="icon-phone mr-2"></span>
+                            <span class="d-none d-md-inline-block">+994 77 566 31 61</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-6 text-right">
+                    <div class="mr-auto">
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+
+
+                            <a asp-controller="Home" asp-action="Signin" class="p-2 pl-0"><span>@User.Identity.Name.ToUpper()</span></a>
+                            <a asp-controller="Home" asp-action="Logout" class="p-2 pl-0"><span>Logout</span></a>
+
+                        }
+                        else
+                        {
+                            <a asp-controller="Home" asp-action="Signin" class="p-2 pl-0"><span>LOG IN</span></a>
+                            <a asp-controller="Home" asp-action="Register" class="p-2 pl-0"><span>SING UP</span></a>
+                        }
+                        <a href="#" class="p-2 pl-0"><span class="icon-twitter"></span></a>
+                        <a href="#" class="p-2 pl-0"><span class="icon-facebook"></span></a>
+                        <a href="#" class="p-2 pl-0"><span class="icon-linkedin"></span></a>
+                        <a href="#" class="p-2 pl-0"><span class="icon-instagram"></span></a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="site-navbar site-navbar-target js-sticky-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-2">
+                    <h1 class="my-0 site-logo">
+                        <a class="LIQUOR" href="index.html">LIQUOR STORE</a>
+                    </h1>
+                </div>
+                <div class="col-10">
+                    <nav class="site-navigation text-right" role="navigation">
+                        <div class="container">
+                            <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span style="color: chocolate;" class="icon-menu h3"></span></a></div>
+
+                            <ul class="site-menu main-menu js-clone-nav d-none d-lg-block">
+                                <li>
+                                    <a asp-controller="Home" asp-action="Index" class="nav-link">Home</a>
+                                </li>
+                                <li>
+                                    <a asp-controller="Home" asp-action="About" class="nav-link">About</a>
+                                </li>
+
+                                <li class="active">
+                                    <a asp-controller="Shop" asp-action="Index" class="nav-link">Product</a>
+                                </li>
+                                <li>
+                                    <a asp-controller="Blog" asp-action="Index" class="nav-link">Blog</a>
+                                </li>
+                                <li>
+                                    <a asp-controller="Home" asp-action="Contact" class="nav-link">Contact</a>
+                                </li>
+
+                                <li>
+                                    <a asp-controller="Shop" asp-action="ShoppingCard" class="nav-link">
+                                        <span><i class="fas fa-shopping-basket"></i></span>
+                                        <sup>2</sup>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="hero" style="        background-image: url(https://preview.colorlib.com/theme/liquorstore/images/xbg_2.jpg.pagespeed.ic.CNGkvk0ls9.webp);
+        height: 400px;">
+    <div class="textone" data-aos="fade-up">
+        <p style="text-align: center;padding-top: 159px;font-size: 20px;font-weight: 700;">
+            <span>
+                <a href="index.html" style="color: gray;">
+                    HOME
+                    <i class="fa fa-chevron-right"></i>
+                </a>
+            </span>
+            <span>
+                PRODUCTS
+                <i class="fa fa-chevron-right"></i>
+            </span>
+        </p>
+        <h2 style="text-align: center;color:white;font-size: 90px;">Products</h2>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9 productss">
+
+
+            <div class="row mt-5 ">
+                <div class="col-md-12 product-field">
+                    <ul class="itemsss imagedana">
+
+                        @foreach (var item in Model.Products)
+                        {
+                            <li style="width: 250px;margin-left: 10px;margin-top: 20px;" data-category="" data-price="">
+                                <picture>
+                                    <img src="./assets/images/@item.ImagePati" alt="">
+                                </picture>
+                                <div class="detail">
+                                    <p class="icon">
+                                        <a asp-controller="Shop" asp-action="AddBasket" asp-route-id="@item.Id">
+                                            <span><i class="far fa-heart"></i></span>
+                                        </a>
+
+                                        <span><a style="color: white;" asp-action="Details" asp-route-id="@item.Id" class="far fa-share-square"></a></span>
+                                        <a href="javascript:addToCart(@item.Id)">
+                                            <span><i class="fas fa-shopping-basket"></i></span>
+
+                                        </a>
+                                    </p>
+                                    <strong>@item.ProductTypes.Name</strong>
+                                    <span>@item.Description</span>
+                                    <small>Buy now</small>
+                                </div>
+                                <h4 style="margin-left: 169px;margin-top: -149px;">@item.Price</h4>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+        <div class="col-lg-3 productss">
+
+            <div class="categoriesssss">
+                <h3>Product Types</h3>
+                <ul class="indicator">
+                    @foreach (var item in Model.productTypes)
+                    {
+                        <li data-filter="@item.Name">
+                            <span href="#">
+                                @item.Name
+                            </span>
+                        </li>
+                    }
+
+
+
+
+                </ul>
+            </div>
+
+            <h3 style="margin-left: 20px;" class="RecentBlog">Recent Blog</h3>
+
+            <div style="margin-left: -20px;" class="catagoriyes-blog">
+                <div style="display: flex;" class="catagoriyes-blog-image">
+
+                    <div class="catagoriyes-blog-image-img" style="background-image: url(./assets/images/gagasim-4.jpg);height: 60px;"></div>
+
+                    <div style="margin-left: -6px;" class="catagoriyes-blog-image-item">
+                        <p style="font-size: 16px;">Even the all-powerful Pointing has no control about the blind texts</p>
+                    </div>
+
+                </div>
+                <div style="margin-left: -16px; margin-top: -10px;" class="meta1">
+                    <div><a href="#"> Apr. 18, 2020</a></div>
+                    <div style="margin-left: 5px;"><a href="#">Admin</a></div>
+                    <div style="margin-left: 5px;"><a href="#"> 19</a></div>
+                </div>
+            </div>
+            <div style="margin-left: -20px;" class="catagoriyes-blog">
+                <div style="display: flex;" class="catagoriyes-blog-image">
+
+                    <div class="catagoriyes-blog-image-img" style="background-image: url(./assets/images/gagasim-4.jpg);height: 60px;"></div>
+
+                    <div style="margin-left: -6px;" class="catagoriyes-blog-image-item">
+                        <p style="font-size: 16px;">Even the all-powerful Pointing has no control about the blind texts</p>
+                    </div>
+
+                </div>
+                <div style="margin-left: -16px; margin-top: -10px;" class="meta1">
+                    <div><a href="#"> Apr. 18, 2020</a></div>
+                    <div style="margin-left: 5px;"><a href="#">Admin</a></div>
+                    <div style="margin-left: 5px;"><a href="#"> 19</a></div>
+                </div>
+            </div>
+            <div style="margin-left: -20px;" class="catagoriyes-blog">
+                <div style="display: flex;" class="catagoriyes-blog-image">
+
+                    <div class="catagoriyes-blog-image-img" style="background-image: url(./assets/images/gagasim-4.jpg);height: 60px;"></div>
+
+                    <div style="margin-left: -6px;" class="catagoriyes-blog-image-item">
+                        <p style="font-size: 16px;">Even the all-powerful Pointing has no control about the blind texts</p>
+                    </div>
+
+                </div>
+                <div style="margin-left: -16px; margin-top: -10px;" class="meta1">
+                    <div><a href="#"> Apr. 18, 2020</a></div>
+                    <div style="margin-left: 5px;"><a href="#">Admin</a></div>
+                    <div style="margin-left: 5px;"><a href="#"> 19</a></div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+<nav class="paginationnav" aria-label="...">
+    <ul class="pagination">
+        <li class="page-item">
+            <a class="page-link" href="#"><</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">1</a>
+        </li>
+        <li class="page-item ">
+            <a class="page-link" href="#">2</a>
+        </li>
+        <li class="page-item active">
+            <a class="page-link" href="#">3</a>
+        </li>
+        <li class="page-item ">
+            <a class="page-link" href="#">></a>
+        </li>
+
+    </ul>
+</nav>
+
+
+@section addjs{
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+    <script>
+
+
+        function addToCart(id) {
+
+            let arr = [];
+
+            var storedJson = $.cookie('basket');
+
+            if (storedJson != undefined && typeof storedJson == 'string') {
+                arr = JSON.parse(storedJson);
+                // console.log(arr);
+            };
+
+            var found = arr.filter(item => {
+                return item.productId == id;
+            })[0];
+
+            if (found == undefined) {
+                found = {
+                    productId: id,
+                    count: 1
+                }
+                arr.push(found);
+
+
+            }
+            else {
+                found.count = found.count + 1;
+            }
+
+            var jsonStrinfy = JSON.stringify(arr);
+
+            $.cookie('basket', jsonStrinfy, { expires: 7, path: '' });
+
+
+        }
+    </script>
+}

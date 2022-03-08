@@ -1,0 +1,239 @@
+﻿@model List<BasketViewModel>
+@{
+    ViewData["Title"] = "ShoppingCard";
+}
+
+
+
+<div class="site-navbar-wrap">
+    <div class="site-navbar-top">
+        <div class="container py-3">
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <div class="d-flex mr-auto">
+                        <a href="#" class="d-flex align-items-center mr-4">
+                            <span class="icon-envelope mr-2"></span>
+                            <span class="d-none d-md-inline-block">eltunhi@code.edu.az</span>
+                        </a>
+                        <a href="#" class="d-flex align-items-center mr-auto">
+                            <span class="icon-phone mr-2"></span>
+                            <span class="d-none d-md-inline-block">+994 77 566 31 61</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-6 text-right">
+                    <div class="mr-auto">
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+
+
+                            <a asp-controller="Home" asp-action="Signin" class="p-2 pl-0"><span>@User.Identity.Name.ToUpper()</span></a>
+                            <a asp-controller="Home" asp-action="Logout" class="p-2 pl-0"><span>Logout</span></a>
+
+                        }
+                        else
+                        {
+                            <a asp-controller="Home" asp-action="Signin" class="p-2 pl-0"><span>LOG IN</span></a>
+                            <a asp-controller="Home" asp-action="Register" class="p-2 pl-0"><span>SING UP</span></a>
+                        }
+                        <a href="#" class="p-2 pl-0"><span class="icon-twitter"></span></a>
+                        <a href="#" class="p-2 pl-0"><span class="icon-facebook"></span></a>
+                        <a href="#" class="p-2 pl-0"><span class="icon-linkedin"></span></a>
+                        <a href="#" class="p-2 pl-0"><span class="icon-instagram"></span></a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="site-navbar site-navbar-target js-sticky-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-2">
+                    <h1 class="my-0 site-logo">
+                        <a class="LIQUOR" href="index.html">LIQUOR STORE</a>
+                    </h1>
+                </div>
+                <div class="col-10">
+                    <nav class="site-navigation text-right" role="navigation">
+                        <div class="container">
+                            <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span style="color: chocolate;" class="icon-menu h3"></span></a></div>
+
+                            <ul class="site-menu main-menu js-clone-nav d-none d-lg-block">
+                                <li>
+                                    <a asp-controller="Home" asp-action="Index" class="nav-link">Home</a>
+                                </li>
+                                <li>
+                                    <a asp-controller="Home" asp-action="About" class="nav-link">About</a>
+                                </li>
+
+                                <li class="active">
+                                    <a asp-controller="Shop" asp-action="Index" class="nav-link">Product</a>
+                                </li>
+                                <li>
+                                    <a asp-controller="Blog" asp-action="Index" class="nav-link">Blog</a>
+                                </li>
+                                <li>
+                                    <a asp-controller="Home" asp-action="Contact" class="nav-link">Contact</a>
+                                </li>
+
+                                <li>
+                                    <a href="#contact-section" class="nav-link">
+                                        <span><i class="fas fa-shopping-basket"></i></span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="hero" style="        background-image: url(https://preview.colorlib.com/theme/liquorstore/images/xbg_2.jpg.pagespeed.ic.CNGkvk0ls9.webp);
+        height: 400px;">
+    <div class="textone" data-aos="fade-up">
+        <p style="text-align: center;padding-top: 159px;font-size: 20px;font-weight: 700;">
+            <span>
+                <a href="index.html" style="color: gray;">
+                    HOME
+                    <i class="fa fa-chevron-right"></i>
+                </a>
+            </span>
+            <span>
+                PRODUCTS
+                <i class="fa fa-chevron-right"></i>
+            </span>
+            <span>
+                PRODUCTS CARD
+                <i class="fa fa-chevron-right"></i>
+            </span>
+        </p>
+        <h2 style="text-align: center;color:white;font-size: 90px;">Product Single</h2>
+    </div>
+</div>
+
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            <div class="table-wrap">
+                <table class="table">
+                    <thead class="thead-primary">
+                        <tr>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Count</th>
+                            <th>Total</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr class="alert" role="alert">
+
+                                <td>
+                                    <img style="height:100px;width:100px;" src="/assets/images/@item.ImagePati" alt="">
+                                </td>
+                                <td>
+                                    <div style="margin-left: 19px; margin-top: 36px; font-size: 22px; color: #a23f25" class="email">
+                                        <span>@item.Name</span>
+                                    </div>
+                                </td>
+
+                                <td style="padding-left: 41px; padding-top: 49px; display: inline-block; font-size: 20px; color: #a23f25">@item.Price.ToString("$0.00")</td>
+
+                                <td class="quantity">
+                                    <div style="padding-left:30px;color:red" class="input-group">
+                                        <input style="margin-left: -10px; margin-top: 30px; font-size: 20px; color: #a23f25" type="text" class="quantity form-control input-number" value="@item.Count" >
+                                    </div>
+                                </td>
+                                <td style="padding-top: 53px; color: #a23f25;padding-left:44px;">@item.Amount.ToString("$0.00")</td>
+                                <td>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true"><i style="color: #a23f25" class="fa fa-close"></i></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row justify-content-end">
+            <div class="col col-lg-5 col-md-6 mt-5 cart-wrap ftco-animate">
+                <div class="cart-total mb-3">
+                    <h3>Cart Totals</h3>
+                    <p class="d-flex total-price">
+                        <span>Total</span>
+                        <span></span>
+                    </p>
+                </div>
+                <p class="text-center"><a href="checkout.html" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section addcss{
+
+    <style>
+        .ftco-section {
+            padding: 6em 0;
+            position: relative;
+        }
+
+        .table thead.thead-primary {
+            background: #b7472a;
+            border-radius: 4px;
+        }
+
+        .table thead th {
+            border: none;
+            padding: 30px;
+            font-size: 20px;
+            font-weight: 500;
+            color: white;
+        }
+
+        .alert {
+            position: relative;
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
+            border-radius: 0.25rem;
+        }
+
+        .cart-total {
+            width: 100%;
+            display: block;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 20px;
+        }
+
+            .cart-total h3 {
+                font-size: 24px;
+                margin-bottom: 20px;
+                font-weight: 500;
+            }
+
+            .cart-total p {
+                width: 100%;
+                display: block;
+            }
+
+                .cart-total p span {
+                    display: block;
+                    width: 50%;
+                }
+    </style>
+
+}

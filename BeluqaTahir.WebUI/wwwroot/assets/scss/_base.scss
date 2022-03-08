@@ -1,0 +1,43 @@
+
+body {
+	font-family: $font-family-sans-serif;
+	background-color: #fff;
+
+	height: 200vh;
+	position: relative;
+
+	&:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba($black, .5);
+		transition: .3s all ease;
+		opacity: 0;
+		visibility: hidden;
+		z-index: 1;
+	}
+	&.offcanvas-menu {
+		&:before {
+			opacity: 1;
+			z-index: 1002;
+			visibility: visible;
+		}
+	}
+}
+p {
+	color: darken(#ccc, 10%);
+	font-weight: 300;
+}
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: $font-family-sans-serif;
+}
+a {
+	transition: .3s all ease;
+	&, &:hover {
+		text-decoration: none!important;
+	}
+}

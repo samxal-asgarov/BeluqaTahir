@@ -1,0 +1,279 @@
+﻿
+@model PagedViewModel<HappyClients>
+
+@{
+    ViewData["Title"] = "About";
+}
+
+<div class="site-navbar-wrap">
+    <div class="site-navbar-top">
+        <div class="container py-3">
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <div class="d-flex mr-auto">
+                        <a href="#" class="d-flex align-items-center mr-4">
+                            <span class="icon-envelope mr-2"></span>
+                            <span class="d-none d-md-inline-block">eltunhi@code.edu.az</span>
+                        </a>
+                        <a href="#" class="d-flex align-items-center mr-auto">
+                            <span class="icon-phone mr-2"></span>
+                            <span class="d-none d-md-inline-block">+994 77 566 31 61</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-6 text-right">
+                    <div class="mr-auto">
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+
+
+                            <a asp-controller="Home" asp-action="Signin" class="p-2 pl-0"><span>@User.Identity.Name.ToUpper()</span></a>
+                            <a asp-controller="Home" asp-action="Logout" class="p-2 pl-0"><span>Logout</span></a>
+
+                        }
+                        else
+                        {
+                            <a asp-controller="Home" asp-action="Signin" class="p-2 pl-0"><span>LOG IN</span></a>
+                            <a asp-controller="Home" asp-action="Register" class="p-2 pl-0"><span>SING UP</span></a>
+                        }
+                        <a href="#" class="p-2 pl-0"><span class="icon-twitter"></span></a>
+                        <a href="#" class="p-2 pl-0"><span class="icon-facebook"></span></a>
+                        <a href="#" class="p-2 pl-0"><span class="icon-linkedin"></span></a>
+                        <a href="#" class="p-2 pl-0"><span class="icon-instagram"></span></a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="site-navbar site-navbar-target js-sticky-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-2">
+                    <h1 class="my-0 site-logo">
+                        <a class="LIQUOR" href="index.html">LIQUOR STORE</a>
+                    </h1>
+                </div>
+                <div class="col-10">
+                    <nav class="site-navigation text-right" role="navigation">
+                        <div class="container">
+                            <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span style="color: chocolate;" class="icon-menu h3"></span></a></div>
+
+                            <ul class="site-menu main-menu js-clone-nav d-none d-lg-block">
+                                <li>
+                                    <a asp-controller="Home" asp-action="Index" class="nav-link">Home</a>
+                                </li>
+                                <li class="active">
+                                    <a asp-controller="Home" asp-action="About" class="nav-link">About</a>
+                                </li>
+
+                                <li>
+                                    <a asp-controller="Shop" asp-action="Index" class="nav-link">Product</a>
+                                </li>
+                                <li>
+                                    <a asp-controller="Blog" asp-action="Index" class="nav-link">Blog</a>
+                                </li>
+                                <li>
+                                    <a asp-controller="Home" asp-action="Contact" class="nav-link">Contact</a>
+                                </li>
+
+                                <li>
+                                    <a href="#contact-section" class="nav-link">
+                                        <span>
+                                            <i class="fas fa-shopping-basket"></i>
+                                        </span>
+                                        <sup>3</sup>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="hero" style="        background-image: url(https://preview.colorlib.com/theme/liquorstore/images/xbg_2.jpg.pagespeed.ic.CNGkvk0ls9.webp);
+        height: 400px;">
+    <div class="textone" data-aos="fade-up">
+        <p style="text-align: center;padding-top: 159px;font-size: 20px;font-weight: 700;">
+            <span>
+                <a href="index.html" style="color: gray;">
+                    HOME
+                    <i class="fa fa-chevron-right"></i>
+                </a>
+            </span>
+            <span>
+                ABOUT US
+                <i class="fa fa-chevron-right"></i>
+            </span>
+        </p>
+        <h2 style="text-align: center;color:white;font-size: 90px;">About Us</h2>
+    </div>
+</div>
+
+
+<!-- Services -->
+<div class="info">
+
+    <div class="container baby">
+        <a data-aos="fade-up" class="card2 col-md-4" href="#">
+            <h3>ONLINE SUPPORT 24/7</h3>
+            <p class="small">
+                A small river named Duden flows by their place and supplies it with the necessary regelialia.
+
+            </p>
+
+            <div class="go-corner" href="#">
+                <div class="go-arrow">
+
+                </div>
+            </div>
+        </a>
+        <a data-aos="fade-up" class="card2 col-md-4" href="#">
+            <h3>
+                MONEY BACK GUARANTEE
+            </h3>
+            <p class="small">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+
+            <div class="go-corner" href="#">
+                <div class="go-arrow">
+                </div>
+            </div>
+        </a>
+        <a data-aos="fade-up" class="card2 col-md-4" href="#">
+            <h3>
+                FREE SHIPPING & RETURN
+            </h3>
+            <p class="small">
+                A small river named Duden flows by their place and supplies it with the necessary regelialia.
+
+                .
+            </p>
+
+            <div class="go-corner" href="#">
+                <div class="go-arrow">
+
+                </div>
+            </div>
+        </a>
+    </div>
+
+</div>
+
+<!-- New Taste -->
+
+<div class="container">
+    <div data-aos="fade-right" class="row mt-5">
+        <div style="        background-image: url(https://preview.colorlib.com/theme/liquorstore/images/xbg_2.jpg.pagespeed.ic.CNGkvk0ls9.webp);
+        background-size: cover;" class="col-md-6 yeah">
+
+        </div>
+        <div data-aos="fade-up" class="col-md-6 yeah">
+
+            <span>Since 1905</span>
+            <h2>Desire Meets A New Taste</h2>
+            <p>
+                A small river named Duden f
+                lows by their place and supplies it with the
+                necessary regelialia. It is a paradisematic country,
+                in which roasted parts of sentences fly into your mouth.
+            </p>
+            <p>
+                On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country.
+
+            </p>
+            <div class="count">
+                <p class="count">115</p>
+                <p class="fak">Years of Experience In Business</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- karusel -->
+
+<div style="background-image:url(./assets/images/gagasim-11.jpg);" class="karusel">
+
+    <p>Testimonial</p>
+    <h2>Happy Clients</h2>
+
+    <div class="container">
+
+        <div class="col-12">
+
+            <div class="container1">
+                <div class="faders">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                </div>
+
+                <div class="items">
+                    @foreach (var item in Model.Items)
+                    {
+                        <div class="entry">
+                            <p class="name">@item.FullName</p>
+                            <img style="border-radius:0px" class="faking" src="/assets/images/@item.ImagePati" alt="Smiling person" />
+                            <p class="quote">"@item.Answer"</p>
+                        </div>
+                    }
+                  
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- //countup -->
+
+<div style="text-align: center !important;" class="up ">
+    <div class="container ">
+        <div class="row mt-5">
+            <div class="col-lg-3   col-md-6 upin ">
+                <div class="counupres">
+                    <p aria-colcount="countupcik1" style="color: #b7472a;font-size: 40px;font-style: italic;font-weight: 700;" class="count">100</p>
+                    <span class="countupcik" style="font-size:18px;color:black;font-weight: 700;margin-top: 10px;display: inline-block;">KINDS OF LIQUOR</span>
+
+                </div>
+            </div>
+            <div class="col-lg-3   col-md-6 upin">
+                <div class="counupres">
+                    <p aria-colcount="countupcik1" style="color: #b7472a;font-size: 40px;font-style: italic;font-weight: 700;" class="count">115</p>
+                    <span class="countupcik" style="font-size:18px;color:black;font-weight: 700;margin-top: 10px;display: inline-block;">YEARS OF Experience</span>
+
+                </div>
+            </div>
+            <div class="col-lg-3  col-md-6 upin">
+                <div class="counupres">
+                    <p aria-colcount="countupcik1" style="color: #b7472a;font-size: 40px;font-style: italic;font-weight: 700;" class="count">113</p>
+                    <span class="countupcik" style="font-size:18px;color:black;font-weight: 700;margin-top: 10px;display: inline-block;">
+                        KINDS OF LIQUOR
+                    </span>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 upin">
+                <div class="counupres">
+                    <p aria-colcount="countupcik1" style="color: #b7472a;font-size: 40px;font-style: italic;font-weight: 700;" class="count">40</p>
+                    <span class="countupcik" style="font-size:18px;color:black;font-weight: 700;margin-top: 10px;display: inline-block;">
+                        OUR BRANCHES
+                    </span>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+
+//Bootstrap
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+//command
+@import "./mixins";
+@import "./variables";
+@import "./base";
+@import "./typography";
+
+//Pages
+@import "./pages/index";
+@import "./pages/about";
+@import "./pages/blog";
+@import "./pages/contact";
+@import "./pages/login";
+@import "./pages/blog-single";
+@import "./pages/product";
+@import "./pages/product-single";
+        

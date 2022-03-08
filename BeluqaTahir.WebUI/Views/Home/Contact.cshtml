@@ -1,0 +1,391 @@
+﻿@model Contact
+@{
+    ViewData["Title"] = "Contact";
+}
+
+
+<div class="site-navbar-wrap">
+    <div class="site-navbar-top">
+        <div class="container py-3">
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <div class="d-flex mr-auto">
+                        <a href="#" class="d-flex align-items-center mr-4">
+                            <span class="icon-envelope mr-2"></span>
+                            <span class="d-none d-md-inline-block">eltunhi@code.edu.az</span>
+                        </a>
+                        <a href="#" class="d-flex align-items-center mr-auto">
+                            <span class="icon-phone mr-2"></span>
+                            <span class="d-none d-md-inline-block">+994 77 566 31 61</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-6 text-right">
+                    <div class="mr-auto">
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+
+
+                            <a asp-controller="Home" asp-action="Signin" class="p-2 pl-0"><span>@User.Identity.Name.ToUpper()</span></a>
+                            <a asp-controller="Home" asp-action="Logout" class="p-2 pl-0"><span>Logout</span></a>
+
+                        }
+                        else
+                        {
+                            <a asp-controller="Home" asp-action="Signin" class="p-2 pl-0"><span>LOG IN</span></a>
+                            <a asp-controller="Home" asp-action="Register" class="p-2 pl-0"><span>SING UP</span></a>
+                        }
+                        <a href="#" class="p-2 pl-0"><span class="icon-twitter"></span></a>
+                        <a href="#" class="p-2 pl-0"><span class="icon-facebook"></span></a>
+                        <a href="#" class="p-2 pl-0"><span class="icon-linkedin"></span></a>
+                        <a href="#" class="p-2 pl-0"><span class="icon-instagram"></span></a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="site-navbar site-navbar-target js-sticky-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-2">
+                    <h1 class="my-0 site-logo">
+                        <a class="LIQUOR" href="index.html">LIQUOR STORE</a>
+                    </h1>
+                </div>
+                <div class="col-10">
+                    <nav class="site-navigation text-right" role="navigation">
+                        <div class="container">
+                            <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span style="color: chocolate;" class="icon-menu h3"></span></a></div>
+
+                            <ul class="site-menu main-menu js-clone-nav d-none d-lg-block">
+                                <li>
+                                    <a asp-controller="Home" asp-action="Index" class="nav-link">Home</a>
+                                </li>
+                                <li>
+                                    <a asp-controller="Home" asp-action="About" class="nav-link">About</a>
+                                </li>
+
+                                <li>
+                                    <a asp-controller="Shop" asp-action="Index" class="nav-link">Product</a>
+                                </li>
+                                <li>
+                                    <a asp-controller="Blog" asp-action="Index" class="nav-link">Blog</a>
+                                </li>
+                                <li class="active">
+                                    <a asp-controller="Home" asp-action="Contact" class="nav-link">Contact</a>
+                                </li>
+
+                                <li>
+                                    <a href="#contact-section" class="nav-link">
+                                        <span><i class="fas fa-shopping-basket"></i></span>
+                                        <sup>3</sup>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="hero" style="background-image: url(https://preview.colorlib.com/theme/liquorstore/images/xbg_2.jpg.pagespeed.ic.CNGkvk0ls9.webp);
+        height: 400px;">
+
+    <div class="textone" data-aos="fade-up">
+        <p style="text-align: center;padding-top: 159px;font-size: 20px;font-weight: 700;">
+            <span>
+                <a href="index.html" style="color: gray;">
+                    HOME
+                    <i class="fa fa-chevron-right"></i>
+                </a>
+            </span>
+            <span>
+                CONTACT
+                <i class="fa fa-chevron-right"></i>
+            </span>
+        </p>
+        <h2 style="text-align: center;color:white;font-size: 90px;">Contact</h2>
+    </div>
+</div>
+
+
+<div style="background-color: #f5f4f0 !important;">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="icongagas">
+                    <div class="icongagas__icon">
+                        <span class="fa fa-map-marker"></span>
+                    </div>
+                    <div class="icongagas__text">
+                        <p>
+                            <span style="font-weight: 700;color: black;">Address:</span>
+                            198 West 21th Street, Suite 721 New York NY 10016
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="icongagas">
+                    <div class="icongagas__icon">
+                        <span style="margin-left: 50px;" class="fa fa-phone"></span>
+                    </div>
+                    <div class="icongagas__text">
+                        <p>
+                            <span style="font-weight: 700;color: black;">Phone:</span>
+                            +994-077-566-31-61
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="icongagas">
+                    <div class="icongagas__icon">
+                        <span style="margin-left: 45px;" class="fa fa-paper-plane"></span>
+                    </div>
+                    <div class="icongagas__text">
+                        <p>
+                            <span style="font-weight: 700;color: black;">Email:</span>
+                            eltunhi@code.edu.az
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="icongagas">
+                    <div class="icongagas__icon">
+                        <span style="margin-left:49px;" class="fa fa-globe"></span>
+                    </div>
+                    <div class="icongagas__text">
+                        <p>
+                            <span style="font-weight: 700;color: black;">Website :</span>
+                            BeluqaTahir.az
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row mt-4 justify-content-center">
+            <div class="col-md-12">
+                <div class="wrapper">
+                    <div class="row no-gutters mb-5">
+                        <div class="col-md-6 d-flex align-items-stretch">
+                            <div id="map">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d24313.215380891517!2d49.86191205!3d40.3833254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1628778602654!5m2!1sen!2s" width="100%" height="644px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6 aybleee">
+                            <div class="contact-wrap w-100 p-md-5 p-4">
+                                <h3 class="mb-4">Contact Us</h3>
+
+                                <form method="post" class="contactForm" id="contact1" novalidate>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label style="color: #b7472a;" class="label" for="name">Name</label>
+                                                <input asp-for="Name"
+                                                       data-rule-required="true"
+                                                       data-msg-required="Bosh buraxmayin"
+                                                       class="form-control"
+                                                       placeholder="Name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label style="color: #b7472a;" class="label" for="email">Email Address</label>
+                                                <input asp-for="Email"
+                                                       data-rule-required="true"
+                                                       data-msg-required="Bosh buraxmayin"
+                                                       data-rule-email="true"
+                                                       data-msg-email="Email daxil edin"
+                                                       class="form-control"
+                                                       placeholder="Email">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label style="color: #b7472a;" class="label" for="subject">Subject</label>
+                                                <input asp-for="Subject"
+                                                       data-rule-required="true"
+                                                       data-msg-required="Bosh buraxmayin"
+                                                       class="form-control"
+                                                       placeholder="Subject">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label style="color: #b7472a;" class="label" for="#">Message</label>
+                                                <textarea asp-for="Content"
+                                                          data-rule-required="true"
+                                                          data-msg-required="Bosh buraxmayin"
+                                                          class="form-control"
+                                                          cols="30"
+                                                          rows="4"
+                                                          placeholder="Message"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                @*<input type="button" value="Send Message" class="btn bbn btn-primary">*@
+                                                <button type="submit" class="btn bbn btn-primary">send mee gagas</button>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+@section addjs{
+    <script src="~/libs/jquery-validate/jquery.validate.js"></script>
+
+    @*<script src="~/libs/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>*@
+    <script src="~/libs/toastr.js/toastr.min.js"></script>
+
+
+
+    <script>
+
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": true,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": true,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+
+        // INPUT ERROR CIXARILMASI VALIDATION WITH
+        $(document).ready(function () {
+
+            $('#contact1').validate({
+
+                errorElement: 'span', // Cixan eror label yox span etdih
+               // errorClass: 'is-invalid', // span error cixan zaman class
+              //  validClass: 'is-valid', // span error cixan zaman class input class
+                highlight: function (element, errorClass, validClass) {
+                    $(element).addClass('is-invalid').remove('is-valid')// eger error varsa
+                },
+                unhighlight: function (element, errorClass, validClass) {
+                    $(element).addClass('is-valid').remove('is-invalid') // eger error yoxdusa
+
+                },
+            });
+
+
+        });
+
+        $(document).ready(function () {
+
+            $('#contact1').submit(function (e) {
+            e.preventDefault() // post dayandiriq
+
+
+            var formData = new FormData(e.currentTarget);
+
+
+            $.ajax({
+
+                url: '@Url.Action("Contact")', // URL HELPERLER
+                type: 'Post',
+                data: formData,
+                contentType: false,
+                processData: false,   //EGER FORM DATA AJAX FORMDATA KIMI GELIRSE FALSE
+                dataType: 'json',
+                beforeSend: function (gelenData) {
+                    console.log("before sending");
+                },
+                success: function (gelenData) {
+                        console.log(gelenData);
+
+                        if (gelenData.error == false) {
+                            toastr.success(gelenData.message, 'ugurludur');
+                            e.currentTarget.reset(); // FORM BOSALDIR
+                            $(e.currentTarget).find('.is-invalid').removeClass('is-invalid');
+                            $(e.currentTarget).find('.is-valid').removeClass('is-valid');
+
+
+
+                        } else {
+                            toastr.error(gelenData.message, 'xeta');
+
+                        }
+                },
+                error: function (gelenData) {
+                        console.log(gelenData);
+                        toastr.success('Teyin olunmamis xeta bas verib', 'Error');
+
+                },
+
+            }).always(function () {
+
+                console.log("after sending");
+
+            });
+
+        });
+    });
+
+    </script>
+
+}
+
+@section addcss{
+    <link href="~/libs/toastr.js/toastr.css" rel="stylesheet" />
+
+
+    <style>
+        .is-invalid {
+            border: 1px solid #dc3545;
+        }
+
+            .is-invalid + span.error {
+                color: red;
+                font-size: 1rem;
+            }
+
+        .is-valid {
+            border: 1px solid teal;
+        }
+    </style>
+}
+

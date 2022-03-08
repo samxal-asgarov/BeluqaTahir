@@ -1,0 +1,42 @@
+.paginationnav{
+    margin-left: 42%;
+    margin-top: 80px;
+
+    ul{
+        
+        li{
+            padding-left: 5px;
+            
+           a{
+            border-radius: 50%;
+            color: $color-pramiry;
+           }
+        }
+    }
+  
+    @media screen and (max-width:991px) {
+        margin-left: 40%;
+    }
+    @media screen and (max-width:767px) {
+        margin-left: 38%;
+    }
+    @media screen and (max-width:600px) {
+        margin-left: 35%;
+    }
+    @media screen and (max-width:480px) {
+        margin-left: 30%;
+    }
+    @media screen and (max-width:375px) {
+        margin-left: 20%;
+    }
+    @media screen and (max-width:360px) {
+        margin-left: 25%;
+        margin-top: 130px;
+    }
+    @media screen and (max-width:320px) {
+        margin-left: 20%;
+        margin-top: 130px;
+    }
+   
+}
+

@@ -1,0 +1,97 @@
+﻿
+@model AboutCreateComman
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Blog</h4>
+<hr />
+<div class="white_card_body">
+    <div class="card-body">
+        <div class="form-row">
+            <form class="row" method="post" enctype="multipart/form-data">
+                <div class="col-md-12">
+                    <div>
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="form-group">
+                            <label asp-for="FullName" class="control-label"></label>
+                            <input asp-for="FullName" class="form-control" />
+                            <span asp-validation-for="FullName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Answer" class="control-label"></label>
+                            <textarea asp-for="Answer" class="form-control"></textarea>
+                            <span asp-validation-for="Answer" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Description" class="control-label"></label>
+                            <input asp-for="Description" class="form-control">
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group col-12">
+
+                            <label class="control-label">
+                                Şəkil
+                            </label>
+                            <label class="image-input" for="file">
+                                <input type="hidden" name="fileTemp" value="">
+                                <span>×</span>
+                            </label>
+                            <input name="file" id="file" type="file" accept="image/x-png,image/gif,image/jpeg">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div>
+    <a class="btn btn-outline-dark" asp-action="Index">Back to List</a>
+</div>
+
+
+
+
+@section addjs{
+
+    <script src="~/libs/jquery-image-input/JavaScript.js"></script>
+
+    <script src="~/libs/ckeditor5/ckeditor.js"></script>
+
+    <script>
+
+        // bir sekli getirmek ucun yazilir bu proses js ve css asagdaki kimidir:(jquery-image-input)
+
+
+
+
+        //cekaeditor cundur;
+        $(document).ready(function () {
+
+            ClassicEditor
+                .create(document.querySelector('#Body'))
+                .catch(error => {
+                    console.error(error);
+                });
+
+        });
+
+    </script>
+}
+
+
+@section addcss{
+
+
+    <link href="~/libs/jquery-image-input/StyleSheet.css" rel="stylesheet" />
+
+}
